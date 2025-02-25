@@ -1,0 +1,15 @@
+//for group project cs125
+
+//hangman?
+
+#include <stdio.h>
+
+int main(0
+{
+  printf("Hangman");
+
+
+
+  return 0;
+}
+
