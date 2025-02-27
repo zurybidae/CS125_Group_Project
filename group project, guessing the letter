@@ -1,0 +1,49 @@
+#include <stdio.h>
+#include <string.h>
+#include <ctype.h>
+
+
+/* assuming they already have the word and are guessing the letters*/
+char word[]="bat";
+char guess;
+int i,length;
+int number, input;
+
+int main()
+{
+	do
+	{
+		length=strlen(word);
+		for (i=0; i<length; i++)
+		{
+			printf(" _ ");
+		}
+
+		printf("\n\nGuess the letter:\n");
+		scanf(" %c", &guess);
+
+
+		if (isdigit(guess))
+		{
+			input=1;
+			printf("that is not a letter. Try Again.\n");
+		}
+		else
+		{
+			input=0;
+		}
+
+	} while(input==1);
+	if (guess==word[0])
+	{
+		input=0;
+		printf(" %c _ _", guess);
+	}
+	else
+	{
+		input=1;
+		printf("_ _ _");
+	}
+	return 0;
+}
+
