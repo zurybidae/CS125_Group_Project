@@ -1,5 +1,5 @@
 //2-27-2025 started
-//3-4-2025 finished into word picker
+//3-4-2025 finished into word picker, made guy picture, and started coimbinding guy picture and letter checker 
 
 /*
 *hello
