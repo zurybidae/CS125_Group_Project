@@ -1,0 +1,205 @@
+#include <stdio.h>
+#include <string.h>
+#include <time.h>
+#include <stdlib.h>
+#include <ctype.h>
+
+/* assuming they already have the word and are guessing the letters*/
+char word[50];
+char guess;
+int i,length,count=0;
+int number, input;
+
+void word_picker(int x)
+{
+  srand(time(NULL));
+  int ran_num = rand()%5+1;
+
+  if(x==1)    //animal
+  {
+    switch(ran_num)
+    {
+    case 1:
+    {
+      strcpy(word, "giraffe");
+      break;
+    }
+    case 2:
+    {
+      strcpy(word, "bobcat");
+      break;
+    }
+    case 3:
+    {
+      strcpy(word, "orcha");
+      break;
+    }
+    case 4:
+    {
+      strcpy(word, "quail");
+      break;
+    }
+    case 5:
+    {
+      strcpy(word, "muskrat");
+      break;
+    }
+    default:
+    {
+      printf("oops");
+      break;
+    }
+    }
+  }
+  else if(x==2)  //places       
+  {
+    switch(ran_num)
+    {
+    case 1:
+    {
+      strcpy(word, "office");
+      break;
+    }
+    case 2:
+    {
+      strcpy(word, "paris");
+      break;
+    }
+    case 3:
+    {
+      strcpy(word, "wyoming");
+      break;
+    }
+    case 4:
+    {
+      strcpy(word, "disnyland");
+      break;
+    }
+    case 5:
+    {
+      strcpy(word, "playground");
+      break;
+    }
+    default:
+    {
+      printf("oops");
+      break;
+    }
+    }
+  }
+  else  //food 
+  {
+    switch(ran_num)
+    {
+    case 1:
+    {
+      strcpy(word, "cheese");
+      break;
+    }
+    case 2:
+    {
+      strcpy(word, "beagle");
+      break;
+    }
+    case 3:
+    {
+      strcpy(word, "eggs");
+      break;
+    }
+    case 4:
+    {
+      strcpy(word, "apple");
+      break;
+    }
+    case 5:
+    {
+      strcpy(word, "nachos");
+      break;
+    }
+    default:
+    {
+      printf("oops");
+      break;
+    }
+    }
+  }
+}
+
+
+void print(char word2[])
+{
+    for (i=0; i<length; i++)
+		{
+			if (guess==word[i])
+			{
+				
+				word2[i]=guess;
+				
+			}
+			
+		}
+
+    for(i=0;i<length;i++)
+    {
+        if (word2[i]==' ')
+        {
+            printf(" _ ");
+        }
+        else
+        {
+            printf(" %c ", word2[i]);
+        }
+    }
+}
+
+
+
+int main()
+{
+    int choice;
+  printf("Welcome to Hangman!\n\n");
+  printf("Chose a catagory of words:\n");
+  printf("1) Animals  2) Places  3) Foods \n");
+  scanf("%d", &choice);                          //needs varificvation system
+
+  word_picker(choice);
+//   for(int x=0; x<strlen(word) ;x++)
+//   {
+//     printf("%c", word[x]);
+//   }
+
+    length=strlen(word);
+    char word2[]="                 ";
+			for (i=0; i<length; i++)
+			{
+				printf(" _ ");
+			}
+	do
+	{
+		do
+		{
+			
+			printf("\n\nGuess the letter:\n");
+			scanf(" %c", &guess);
+			
+			if (isdigit(guess))
+			{
+				input=1;
+				printf("that is not a letter. Try Again.\n");
+			}
+			else
+			{
+				input=0;
+			}
+
+		} while(input==1);
+
+		
+		print(word2);
+	}while(strcmp(word,word2)!=0);
+	
+	printf("\nSuccess!you guessed the word\n");
+
+
+	return 0;
+}
