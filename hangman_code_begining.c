@@ -76,7 +76,7 @@ void word_picker(int x)
     }
     case 3:
     {
-      strcpy(word, "whyoming");
+      strcpy(word, "wyoming");
       break;
     }
     case 4:
