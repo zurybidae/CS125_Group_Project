@@ -1,4 +1,6 @@
-//2-27-2025
+//2-27-2025 started
+//3-4-2025 finished into word picker
+
 /*
 *hello
 *
@@ -7,12 +9,13 @@
 
 //https://stackoverflow.com/questions/1478932/check-if-user-inputs-a-letter-or-number-in-c 
 //for checking is digit
+
 #include <stdio.h>
 #include <string.h>
 #include <time.h>
 #include <stdlib.h>
 
-char word[15]={"nope"};
+char word[50];
 
 
 
@@ -127,6 +130,7 @@ void word_picker(int x)
       printf("oops");
       break;
     }
+    }
   }
 }
 
@@ -137,11 +141,15 @@ int main()
   int choice;
   printf("Welcome to Hangman!\n\n");
   printf("Chose a catagory of words:\n");
-  printf("1) Animals  2) Places 3) Foods \n");
+  printf("1) Animals  2) Places  3) Foods \n");
   scanf("%d", &choice);                          //needs varificvation system
 
   word_picker(choice);
-  printf("%s%s", word[0], word[1]);
-
+//   for(int x=0; x<strlen(word) ;x++)
+//   {
+//     printf("%c", word[x]);
+//   }
+  
+  
   return 0;
 }
