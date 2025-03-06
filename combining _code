@@ -163,14 +163,19 @@ int main()
 #include <stdlib.h>
 #include <ctype.h>
 
-
+#define MAX 100
 /* assuming they already have the word and are guessing the letters*/
 //00000000000000000000000 variables
 char word[]="batty";
 char guess;
-int i,length,count=0;
+int i,length, count=0;
 int number, input, safe;
 int wrong_guess=0;
+
+ 
+    char word2[MAX];
+    char filler[MAX];
+
 
 void guy_printer(int x)
 {
@@ -259,7 +264,7 @@ void print(char word2[])
     {
         if (word2[i]==' ')
         {
-            printf(" _ ");
+           //printf("%c", filler[i]);
         }
         else
         {
@@ -268,18 +273,30 @@ void print(char word2[])
     }
 }
 
-
-
+    
 int main()
 {
     length=strlen(word);
     int *size = &length;
-    char word2[*size];
+    
+    for(i=0;i<(*size)*2;i+=2)
+    {
+        filler[i]='_';
+        filler[i+1]=' ';
+        printf("%c%c", filler[i], filler[i+1] );
+    }
+    printf("\n");
+    for(i=0;i<(*size)*2;i+=2)
+    {
+        word2[i]=' ';
+        //word2[i+1]=' ';
+        //printf("%c%c", word2[i], word2[i+1] );
+    }
 	
-			for (i=0; i<length; i++)
-			{
-				printf(" _ ");
-			}
+// 			for (i=0; i<length; i++)
+// 			{
+// 				printf(" _ ");
+// 			}
 	do
 	{
 		do
@@ -315,4 +332,3 @@ int main()
 
 	return 0;
 }
-
