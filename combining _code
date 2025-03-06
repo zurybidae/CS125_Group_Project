@@ -164,17 +164,20 @@ int main()
 #include <ctype.h>
 
 #define MAX 100
+
 /* assuming they already have the word and are guessing the letters*/
 //00000000000000000000000 variables
-char word[]="batty";
+char word[MAX]="batty";
 char guess;
 int i,length, count=0;
-int number, input, safe;
-int wrong_guess=0;
 
- 
-    char word2[MAX];
-    char filler[MAX];
+int number, input;
+int wrong_guess=0;
+int game_over=0;
+int safe=0;
+
+char word2[MAX];
+char filler[MAX];
 
 
 void guy_printer(int x)
@@ -242,33 +245,37 @@ void guy_printer(int x)
         printf("   |  / \\ \n");
         printf("___|_____ \n");
         
-        printf("game over");
+        game_over++;
     }
     
 }
 
-void print(char word2[])
+void letter_correct(char word2[])
 {
     for (i=0; i<length; i++)
+	{
+		if (guess==word[i])
 		{
-			if (guess==word[i])
-			{
-				
-				word2[i]=guess;
-				safe++;
-			}
 			
+			word2[i]=guess;
+			safe++;
 		}
+		
+	}
+}
 
+void print(char word2[])
+{
     for(i=0;i<length;i++)
     {
-        if (word2[i]==' ')
+        if (word2[i]!='x')
         {
-           //printf("%c", filler[i]);
+           printf("%c ", word2[i]);
+           
         }
         else
         {
-            printf(" %c ", word2[i]);
+            printf("%c ", filler[i]);
         }
     }
 }
@@ -278,25 +285,22 @@ int main()
 {
     length=strlen(word);
     int *size = &length;
+    printf("%d", *size);
     
-    for(i=0;i<(*size)*2;i+=2)
+    for(i=0;i<*size;i++)
     {
         filler[i]='_';
-        filler[i+1]=' ';
         printf("%c%c", filler[i], filler[i+1] );
     }
     printf("\n");
-    for(i=0;i<(*size)*2;i+=2)
+    for(i=0;i<*size;i++)
     {
-        word2[i]=' ';
+        word2[i]='x';
         //word2[i+1]=' ';
-        //printf("%c%c", word2[i], word2[i+1] );
+        printf("%c%c", word2[i], word2[i+1] );
     }
 	
-// 			for (i=0; i<length; i++)
-// 			{
-// 				printf(" _ ");
-// 			}
+
 	do
 	{
 		do
@@ -317,18 +321,28 @@ int main()
 
 		} while(input==1);
         
+        
+        letter_correct(word2);
         if(safe==0)
         {
             wrong_guess++;
-            safe=0;
         }
+        safe=0;
 		guy_printer(wrong_guess);
+		print(word2);
 		
-		print(word2);//---------------------------------------------------------------
+		if(game_over==1)
+		{
+		    printf("Game Over");
+		    break;
+		}
 	}while(strcmp(word,word2)!=0);
 	
-	printf("\nSuccess!you guessed the word\n");
-
+	
+	if(game_over ==0)
+	{
+	    printf("\nSuccess!you guessed the word\n");
+	}
 
 	return 0;
 }
