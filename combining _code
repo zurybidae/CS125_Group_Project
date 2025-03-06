@@ -153,3 +153,166 @@ int main()
 
 	return 0;
 }
+
+
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
+#include <stdio.h>
+#include <string.h>
+#include <time.h>
+#include <stdlib.h>
+#include <ctype.h>
+
+
+/* assuming they already have the word and are guessing the letters*/
+//00000000000000000000000 variables
+char word[]="batty";
+char guess;
+int i,length,count=0;
+int number, input, safe;
+int wrong_guess=0;
+
+void guy_printer(int x)
+{
+    if(x==0)
+    {
+        printf("    _ _   \n");
+        printf("   |   |  \n");    
+        printf("   |      \n");
+        printf("   |      \n");
+        printf("   |      \n");
+        printf("___|_____ \n");
+    }
+    else if(x==1)
+    {
+        printf("    _ _   \n");
+        printf("   |   |  \n");    
+        printf("   |   0  \n");
+        printf("   |      \n");
+        printf("   |      \n");
+        printf("___|_____ \n");
+    }
+    else if(x==2)
+    {
+        printf("    _ _   \n");
+        printf("   |   |  \n");    
+        printf("   |   0  \n");
+        printf("   |   |  \n");
+        printf("   |      \n");
+        printf("___|_____ \n");
+    }
+    else if(x==3)
+    {
+        printf("    _ _   \n");
+        printf("   |   |  \n");    
+        printf("   |   0  \n");
+        printf("   |  /|  \n");
+        printf("   |      \n");
+        printf("___|_____ \n");
+    }
+    else if(x==4)
+    {
+        printf("    _ _   \n");
+        printf("   |   |  \n");    
+        printf("   |   0  \n");
+        printf("   |  /|\\ \n");
+        printf("   |      \n");
+        printf("___|_____ \n");
+    }
+    else if(x==5)
+    {
+        printf("    _ _   \n");
+        printf("   |   |  \n");    
+        printf("   |   0  \n");
+        printf("   |  /|\\ \n");
+        printf("   |  /   \n");
+        printf("___|_____ \n");
+    }
+    else if(x==6)
+    {
+        printf("    _ _   \n");
+        printf("   |   |  \n");    
+        printf("   |   0  \n");
+        printf("   |  /|\\ \n");
+        printf("   |  / \\ \n");
+        printf("___|_____ \n");
+        
+        printf("game over");
+    }
+    
+}
+
+void print(char word2[])
+{
+    for (i=0; i<length; i++)
+		{
+			if (guess==word[i])
+			{
+				
+				word2[i]=guess;
+				safe++;
+			}
+			
+		}
+
+    for(i=0;i<length;i++)
+    {
+        if (word2[i]==' ')
+        {
+            printf(" _ ");
+        }
+        else
+        {
+            printf(" %c ", word2[i]);
+        }
+    }
+}
+
+
+
+int main()
+{
+    length=strlen(word);
+    int *size = &length;
+    char word2[*size];
+	
+			for (i=0; i<length; i++)
+			{
+				printf(" _ ");
+			}
+	do
+	{
+		do
+		{
+			
+			printf("\n\nGuess the letter:\n");
+			scanf(" %c", &guess);
+			
+			if (isdigit(guess))
+			{
+				input=1;
+				printf("that is not a letter. Try Again.\n");
+			}
+			else
+			{
+				input=0;
+			}
+
+		} while(input==1);
+        
+        if(safe==0)
+        {
+            wrong_guess++;
+            safe=0;
+        }
+		guy_printer(wrong_guess);
+		
+		print(word2);//---------------------------------------------------------------
+	}while(strcmp(word,word2)!=0);
+	
+	printf("\nSuccess!you guessed the word\n");
+
+
+	return 0;
+}
+
