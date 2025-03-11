@@ -10,7 +10,7 @@
 char word[MAX];
 char word2[MAX];
 char filler[MAX];
-char guess;
+char guess[MAX];
 int i,length, number, input;
 int count=0;
 int wrong_guess=0;
@@ -207,12 +207,24 @@ void guy_printer(int x) //------------------------------------------------------
 
 void letter_correct(char word2[])  //-----------------------------------------------------------------------------------------------------------------------------------------
 {
+    if(strlen(guess)>1)
+    {
+        if(strcmp(guess,word)==0)
+        {
+            game_over = 0;
+            strcpy(word2,guess);
+        }
+        else
+        {
+            strcpy(guess,"7777");
+        }
+    }
     for (i=0; i<length; i++)
 	{
-		if (guess==word[i])
+		if (guess[0]==word[i])
 		{
 			
-			word2[i]=guess;
+			word2[i]=guess[0];
 			safe++;
 		}
 		
@@ -311,12 +323,17 @@ int main() //-------------------------------------------------------------------
 		{
 			
 			printf("\n\nGuess the letter:\n");
-			scanf(" %c", &guess);
+			scanf(" %s", guess);
 			
-			if (isdigit(guess))
+			if (isdigit(guess[0]))
 			{
 				input=1;
-				printf("that is not a letter. Try Again.\n");
+				printf("That is not a letter. Try Again.\n");
+			}
+			else if(strlen(guess)>strlen(word))
+			{
+			    input=1;
+				printf("That guess is too long. Try Again.\n");
 			}
 			else
 			{
@@ -337,7 +354,8 @@ int main() //-------------------------------------------------------------------
 		
 		if(game_over==1)
 		{
-		    printf("Game Over");
+		    printf("\nGame Over");
+		    printf("\nThe word was %s", word);
 		    break;
 		}
 	}while(strcmp(word,word2)!=0);
@@ -347,11 +365,6 @@ int main() //-------------------------------------------------------------------
 	{
 	    printf("\nSuccess! You guessed the word! \n");
 	}
-
-	return 0;
-}
-
-
 
 	return 0;
 }
