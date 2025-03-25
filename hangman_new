@@ -298,13 +298,8 @@ int main() //-------------------------------------------------------------------
     
    
     word_picker(choice);
-    // for(int x=0; x<strlen(word) ;x++)
-    // {
-    //   printf("%c", word[x]);
-    // }
-    
-    
-    
+
+        
     length=strlen(word);
     int *size = &length;
     //printf("%d", *size);
@@ -333,7 +328,7 @@ int main() //-------------------------------------------------------------------
 			}
 			else 
 			{
-			    printf("\n\nletter guessed=");
+			    printf("\n\nletter guessed =");
 			    for (b=0;b<7;b++)
 			    {
 			        printf("%c  ", word_bank[b]);
