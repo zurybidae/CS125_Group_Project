@@ -29,111 +29,30 @@ void word_picker(int x)//-------------------------------------------------------
 
   if(x==1)    //animal
   {
-    switch(ran_num)
+    FILE *words = fopen("animal_words.txt","r");    
+    for(i=0;i<ran_num;i++)
     {
-    case 1:
-    {
-      strcpy(word, "giraffe");
-      break;
+        fgets(word,MAX,words);
     }
-    case 2:
-    {
-      strcpy(word, "bobcat");
-      break;
-    }
-    case 3:
-    {
-      strcpy(word, "orca");
-      break;
-    }
-    case 4:
-    {
-      strcpy(word, "quail");
-      break;
-    }
-    case 5:
-    {
-      strcpy(word, "muskrat");
-      break;
-    }
-    default:
-    {
-      printf("oops");
-      break;
-    }
-    }
+    
   }
   else if(x==2)  //places       
   {
-    switch(ran_num)
+    FILE *words = fopen("place_words.txt","r");    
+    for(i=0;i<ran_num;i++)
     {
-    case 1:
-    {
-      strcpy(word, "office");
-      break;
+        fgets(word,MAX,words);
     }
-    case 2:
-    {
-      strcpy(word, "paris");
-      break;
-    }
-    case 3:
-    {
-      strcpy(word, "wyoming");
-      break;
-    }
-    case 4:
-    {
-      strcpy(word, "disneyland");
-      break;
-    }
-    case 5:
-    {
-      strcpy(word, "playground");
-      break;
-    }
-    default:
-    {
-      printf("oops");
-      break;
-    }
-    }
+    
   }
   else  //food 
   {
-    switch(ran_num)
+    FILE *words = fopen("food_words.txt","r");    
+    for(i=0;i<ran_num;i++)
     {
-    case 1:
-    {
-      strcpy(word, "cheese");
-      break;
+        fgets(word,MAX,words);
     }
-    case 2:
-    {
-      strcpy(word, "bagel");
-      break;
-    }
-    case 3:
-    {
-      strcpy(word, "eggs");
-      break;
-    }
-    case 4:
-    {
-      strcpy(word, "apple");
-      break;
-    }
-    case 5:
-    {
-      strcpy(word, "nachos");
-      break;
-    }
-    default:
-    {
-      printf("oops");
-      break;
-    }
-    }
+
   }
 }
 
