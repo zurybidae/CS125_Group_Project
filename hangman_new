@@ -14,8 +14,7 @@ char filler[MAX];
 char guess[MAX];
 char word_bank[MAX];
 int i,length, number, input;
-int count=0;
-int count2=-1;
+int count=-1;
 int wrong_guess=0;
 int game_over=0;
 int safe=0;
@@ -172,9 +171,9 @@ int main() //-------------------------------------------------------------------
 	{
 		do
 		{
-			count2++;
-			word_bank[count2]=guess[0];
-			if (count2==0)
+			count++;
+			word_bank[count]=guess[0];
+			if (count==0)
 			{
 			    printf("\n");
 			}
