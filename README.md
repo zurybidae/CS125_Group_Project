@@ -16,3 +16,6 @@ int main()
 
 //https://stackoverflow.com/questions/1478932/check-if-user-inputs-a-letter-or-number-in-c 
 //used for checking is digit
+
+//https://www.geeksforgeeks.org/fgets-function-in-c/ 
+//used to remove new line charecter from the end of the word after being read in from the file
