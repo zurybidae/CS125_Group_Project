@@ -178,20 +178,22 @@ int main() //-------------------------------------------------------------------
 			scanf(" %s", guess);
 			
 			
-			if (isdigit(guess[0]))
-			{
-				input=1;
-				printf("That is not a letter. Try Again.\n");
-			}
-			else if(strlen(guess)>strlen(word))
-			{
-			    input=1;
-				printf("That guess is too long. Try Again.\n");
-			}
-			else
-			{
-				input=0;
-			}
+                        if (isalpha(guess[0]))
+                        {
+                                input=0;
+                                //printf("That is not a letter. Try Again.\n");
+                        }
+                        else if(strlen(guess)>strlen(word))
+                        {
+                                input=1;
+                                printf("That guess is too long. Try Again.\n");
+                        }
+                        else
+                        {
+                                input=1;
+                                printf("That is not a letter. Try Again.\n");
+                        }
+
 
 		} while(input==1);
         
