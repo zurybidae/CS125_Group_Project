@@ -136,8 +136,8 @@ int main() //-------------------------------------------------------------------
         
     length=strlen(word);
     int *size = &length;
-    printf("%s",word);
-    printf("%d\n", *size);
+    //printf("%s",word);
+    //printf("%d\n", *size);
     
     for(i=0;i<*size;i++)
     {
