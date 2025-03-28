@@ -22,3 +22,5 @@ int main()
 
 //https://www.w3schools.com/c/c_ref_ctype.php 
 //used to find funcions like isupper() and isalpha()
+
+
