@@ -19,3 +19,6 @@ int main()
 
 //https://www.geeksforgeeks.org/fgets-function-in-c/ 
 //used to remove new line charecter from the end of the word after being read in from the file
+
+//https://www.w3schools.com/c/c_ref_ctype.php 
+//used to find funcions like isupper() and isalpha()
