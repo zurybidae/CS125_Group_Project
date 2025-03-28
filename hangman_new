@@ -141,15 +141,15 @@ int main() //-------------------------------------------------------------------
     printf("Also no funny buisness with guessing numbers, characters, or more then one letter at a time.\n\n");
     printf("\e[0;31mIf you want to surive I recomend playing by the hangman's rules.\n");
     printf("Other than that...\n\n");
-    //sleep(20);
+    sleep(20);
     printf("\e[0;35mHave fun!\n\n\n\n\e[0;37m");
     
-    //sleep(2);
+    sleep(2);
         
     length=strlen(word);
     int *size = &length;
-    printf("%s",word);
-    printf("%d\n", *size);
+    //printf("%s",word);               //testing tools
+    //printf("%d\n", *size);
     
     for(i=0;i<*size;i++)
     {
