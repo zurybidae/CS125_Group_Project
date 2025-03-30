@@ -61,6 +61,10 @@ void word_picker(int x) //------------------------------------------------------
   }
 
 
+//This code checks if the letter the player guessed is correct. It also allows the player to try and guess the correct word if they think they know it,
+// but they have to guess the word completely right in order to win.
+
+
 void letter_correct(char word2[])  //------------------------------------------
   {
      if(strlen(guess)>1)
@@ -149,17 +153,17 @@ int main() //-------------------------------------------------------------------
      printf("Also no funny buisness with guessing numbers, characters, or more then one letter at a time.\n\n");
      printf("\e[0;31mIf you want to surive I recomend playing by the hangman's rules.\n");
      printf("Other than that...\n\n");
-     sleep(20);
+     sleep(2);
      printf("\e[0;35mHave fun!\n\n\n\n\e[0;37m");
     
      sleep(2);
         
-     length=strlen(word);
-     int *size = &length;
-     
 
      //This code prints out underscores for the length of the word, so that the player knows how many letters are in the word
 
+ 
+     length=strlen(word);
+     int *size = &length;
     
      for(i=0;i<*size;i++)
        {
@@ -177,7 +181,8 @@ int main() //-------------------------------------------------------------------
           do
             {
 
-               //This code
+               //This code print out all the letters the player types so that they know which letters they have already entered.
+               // It also has error checking so that numbers and symbols aren't written in the letter bank.
 
                
 	       count++;
@@ -197,6 +202,11 @@ int main() //-------------------------------------------------------------------
                            }
 		      }
                  }
+
+
+               //This code prompts the player to guess a letter. It has error checking so that the player can't enter symbols,numbers, or more than a certain amount of letters. 
+               //It then starts the letter_correct function to check if the letter the player typed in is apart of the word.
+
 					
                printf("\n\nGuess the letter:\n");			
                scanf(" %s", guess);
@@ -223,6 +233,13 @@ int main() //-------------------------------------------------------------------
             } while(input==1);
         
           letter_correct(word2);
+
+
+          //This code decides whether the player wins or loses. If the player guesses the wrong letter six times then it is game over.
+          //If the player successfully guesses the correct letters and finishes the word then they win. 
+          //When the player types in the wrong letter then the code references an h file called guy_printer.h   
+
+
           if(safe==0)
             {
                wrong_guess++;
