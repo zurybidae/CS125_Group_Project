@@ -183,6 +183,7 @@ int main() //-------------------------------------------------------------------
 
                //This code print out all the letters the player types so that they know which letters they have already entered.
                // It also has error checking so that numbers and symbols aren't written in the letter bank.
+	       // It will not run the first time because no letters have been guessed
 
                
 	       count++;
