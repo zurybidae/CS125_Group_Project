@@ -179,7 +179,7 @@ int main() //-------------------------------------------------------------------
 			else 
 			{
 			    printf("\n\nletter guessed = ");
-			    for (b=0;b<7;b++)
+			    for (b=0;b<40;b++)
 			    {
 			        if (isalpha(word_bank[b]) && !isupper(word_bank[b]))
 		          {
