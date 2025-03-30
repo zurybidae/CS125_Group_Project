@@ -111,6 +111,10 @@ int main() //-------------------------------------------------------------------
             {
                input=1;
                printf("That is not a number. Try Again.\n");
+	       //isdigit is a  new code that we learned during this project, it checks whether the player entered a number.
+               //In this code it is used as error checking, if the player entered anything other than a number they will be asked to try again.
+               //We used the website https://stackoverflow.com/questions/1478932/check-if-user-inputs-a-letter-or-number-in-c to learn about the isdigit code
+
             }
           else if(strlen(their_choice)!=1)
             {
