@@ -146,7 +146,7 @@ int main() //-------------------------------------------------------------------
      word_picker(choice);
      
 
-     //This code just prints out instructions so that the player knows the rules of the game.
+     //This code prints out instructions so that the player knows the rules of the game.
 
    
      printf("\nThis game works like most other games of hangman.\n");
