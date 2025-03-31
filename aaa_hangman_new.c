@@ -204,6 +204,9 @@ int main() //-------------------------------------------------------------------
                          if (isalpha(word_bank[b]) && !isupper(word_bank[b]))
 		           {
                               printf("%c  ", word_bank[b]);
+			      //isalpha and isupper are both new codes that we learned during this project.
+                              //isalpha checks if the player entered a letter, while isupper checks if the player enters an uppercase letter.
+                              //In this code we used isalpha and isupper as a way to help error check the code, if the player entered anything
                            }
 		      }
                  }
